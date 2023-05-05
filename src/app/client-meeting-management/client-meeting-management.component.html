@@ -1,4 +1,21 @@
-
-<div class="container">
-    <h3>client-meeting-management works!!</h3>
+<div class="client-margin card">
+    <h4 class="card-header text-center">
+        Schedule Appointment
+    </h4>
+    <form [formGroup]="schedule_form" (ngSubmit)="onSchedule()" >
+        <div class="mb-3 client-form form-group">  
+            <div> 
+                <label class ="form-label" for="cname">Client Name </label>
+                <input type="text" id="client_name" class ="form-control" formControlName = "cname"/>
+                <small class="text-danger" *ngIf="!schedule_form.get('cname')!.valid && schedule_form.get('cname')!.touched" >
+                    Please enter Username</small> 
+            </div>
+            <div>          
+                <label class ="form-label" for="dnt">Select Date and Time </label>
+                <input class ="form-control" type="datetime-local" id="schedule_dnt" formControlName = "dnt">
+                <small class="text-danger" *ngIf="!schedule_form.get('dnt')!.valid && schedule_form.get('dnt')!.touched" >Please enter valid Date and Time </small>
+            </div>
+            <button type="submit"  class="btn btn-primary btn-spacng" > Schedule </button>
+       </div>
+    </form>
 </div>

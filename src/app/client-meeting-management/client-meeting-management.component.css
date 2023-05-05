@@ -1,0 +1,15 @@
+.client-form{
+    padding:20px;
+}
+.client-margin{
+    width: 500px;
+    padding:1px;
+    margin:auto;
+    margin-top:10px;
+}
+.btn-spacng{
+    margin-top: 20px;
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}

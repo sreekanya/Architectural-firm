@@ -1,3 +1,49 @@
-<div class="container">
-    <h3>client-management works!</h3>
+<div class="client-margin card client-form">
+    <h4 class="card-header text-center">
+        Register New Client
+    </h4>
+    <form (ngSubmit)="form_validate(f)" #f="ngForm" > 
+        <div class="mb-3 client-form form-group">
+            <div>
+                <label class ="form-label" for="cname">Client Name </label>
+                <input type="text" id="client_name" class ="form-control" ngModel pattern="[A-Za-z]*" name="cname"  #cname="ngModel" required/>
+                <small class="text-danger" *ngIf="!cname.valid &&cname.touched" >Please enter valid Username</small>
+            </div>
+            <div>
+                <label class ="form-label" for="phone">Phone Number </label>
+                <input type="number" class ="form-control" ngModel name="phone" #phone="ngModel" required/>
+                <small class="text-danger" *ngIf="!phone.valid &&phone.touched" >Please enter Phone number</small>
+            </div>
+            <div>
+                <label class ="form-label" for="email">Email </label>
+                <input type="email" class ="form-control" id="client_email" ngModel name="cemail" 
+                email required #email="ngModel"/>
+                <small class="text-danger" *ngIf="!email.valid &&email.touched" >Please enter valid Email</small>
+            </div>
+            <div>
+                <label class ="form-label" for="address">Address </label>
+                <input type="text" class ="form-control" ngModel name="address" pattern="[A-Za-z]*" #address="ngModel" required/>
+                <small class="text-danger" *ngIf="!address.valid &&address.touched" >Please enter Address</small>
+            </div>
+            <div>
+                <label class ="form-label" for="city">City </label>
+                <input type="text" class ="form-control" ngModel  name="city"/>
+            </div>
+            <div>
+                <label class ="form-label" for="pin">Pin Code </label>
+                <input type="number" class ="form-control" ngModel name="pin"/>
+            </div>
+            <button type="submit"  class="btn btn-primary btn-spacng" [disabled] ="!f.valid"> Register </button>
+        </div>
+    </form>
+    <hr>
+    <div class="row" *ngIf="submitted">
+        <h3>Form Data</h3>
+        <p>User name :{{client_data.username}}</p>
+        <p>Phone number :{{client_data.phone}}</p>
+        <p>Email :{{client_data.email}}</p>
+        <p>Address  :{{client_data.address}}</p>
+        <p>City :{{client_data.city}}</p>
+        <p>PIN :{{client_data.pin}}</p>
+    </div>
 </div>
